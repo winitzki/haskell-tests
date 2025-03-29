@@ -17,6 +17,10 @@
 #
 # snapshot: ./custom-snapshot.yaml
 # snapshot: https://example.com/snapshots/2024-01-01.yaml
+
+# Look here for the GHC versions supported by HLS: https://www.stackage.org/
+# Look here for the LTS versions that support given GHC versions: https://haskell-language-server.readthedocs.io/en/latest/support/ghc-version-support.html
+
 snapshot: lts-22.43
 #  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/22/43.yaml
 

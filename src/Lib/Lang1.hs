@@ -1,4 +1,4 @@
-module Lib.Lang1 ( VarRef, Statement, Exp, demo) where
+module Lib.Lang1 ( VarRef(..), Statement(..), Exp(..),   demo, sample) where
 -- Data types à la carte: exercises.
 
 -- Begin with the toy language expressed via direct recursion.
