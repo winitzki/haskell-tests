@@ -42,6 +42,8 @@ executables:
     source-dirs:
     - app
     - src
+    other-modules:
+    - Lib.Lang1
     ghc-options:
     - -threaded
     - -rtsopts

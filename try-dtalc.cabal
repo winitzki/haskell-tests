@@ -41,9 +41,6 @@ executable try-dtalc-exe
   main-is: Main.hs
   other-modules:
       Lib.Lang1
-      Paths_try_dtalc
-  autogen-modules:
-      Paths_try_dtalc
   hs-source-dirs:
       app
       src
