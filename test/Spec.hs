@@ -2,7 +2,7 @@
 -- It is an error to define a module here!! 
 
 import Test.Hspec
-import Lib.Lang1  
+import Lib.Lang1  (GetInts(..), Exp(..), VarRef(..), sample)
 
 main :: IO ()
 main = hspec $ do
@@ -12,3 +12,6 @@ main = hspec $ do
 
     it "shows a multiplication" $ do
       show (Mul  (IntExp 2) (VarExp (Var "a"))) `shouldBe` "2 * a"
+
+    it "extracts integers" $ do
+      getInts sample `shouldBe` [1 , 2 ]

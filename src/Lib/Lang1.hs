@@ -1,4 +1,4 @@
-module Lib.Lang1 ( VarRef(..), Statement(..), Exp(..),   demo, sample) where
+module Lib.Lang1 ( VarRef(..), Statement(..), Exp(..),   demo, sample, GetInts(..)) where
 -- Data types à la carte: exercises.
 
 -- Begin with the toy language expressed via direct recursion.
@@ -13,6 +13,7 @@ data Exp = Mul Exp Exp
          | IntExp Int
          | VarExp VarRef
 
+-- Convert the language to String. This is done via the Show typeclass.
 
 instance Show VarRef where
     show (Var s) = s
@@ -26,6 +27,23 @@ instance Show Exp where
     show (Mul e1 e2) = show e1 ++ " * " ++ show e2
     show (IntExp i) = show i
     show (VarExp v) = show v
+
+-- Extract all literal integers from the language.
+
+class GetInts a where
+    getInts :: a -> [Int]
+
+instance GetInts VarRef where
+    getInts _ = []
+
+instance GetInts Exp where
+    getInts (IntExp i) = [i]
+    getInts (Mul e1 e2) = getInts e1 ++ getInts e2
+    getInts _ = [] 
+
+instance GetInts Statement where
+    getInts (Assign _ e) = getInts e
+    getInts (Seq s1 s2) = getInts s1 ++ getInts s2
 
 sample :: Statement
 sample = Seq (Assign (Var "a") (IntExp 1)) (Assign (Var "b") (Mul  (IntExp 2) (VarExp (Var "a"))))
